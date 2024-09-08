@@ -9,13 +9,17 @@ Route::get('/', function () {    //this is home page
 // if we change the name of file here in route URL then only one time we need to change here 
 // now for other page this file name is aboutme but in url it show intro but real name if file is about
      
-// route named
-Route::get('/intro', function(){
-    return view('about');
-})->name('aboutme');
+// route Group
+Route::prefix('page')->group(function(){
 
+    Route::get('/intro', function(){
+        return view('about');
+    });
+    
+    
+    
+    Route::get('/pest', function(){
+        return view('pest');
+    });
 
-
-Route::get('/pest', function(){
-    return view('pest');
-})->name('post');
+});
