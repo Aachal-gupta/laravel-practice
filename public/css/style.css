@@ -1,0 +1,65 @@
+
+.container{
+    margin:30px;                                    /* it is optional */
+}
+
+.container,.container-fluid{
+    border: solid 0px blueviolet;
+}
+.row{
+    border: solid 0px rgb(43, 226, 110);
+
+}
+.col,.col-1,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-10,.col-11,.col-12{
+    border: solid 0px rgb(30, 33, 17);
+    /* display:; */
+
+}
+.col-md{
+    border: solid 0px rgb(188, 222, 35);
+
+}
+.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-10,.col-11{
+    border: solid 0px rgb(222, 48, 35);
+
+}
+
+
+#header{
+
+    background-color: orange;
+     padding: 10px 0 10px 10px; 
+}
+
+#menu{
+    background-color: pink;
+   padding: 3px 0px;
+}   
+#menu ul li {
+    display:inline-block;
+   
+}  
+#menu ul  {
+    
+   list-style:none;
+   margin:0;
+}    
+
+
+#content{
+    
+    background-color: white;
+}
+#sidebar{
+    
+    background-color: lightblue;
+}
+
+#footer{
+    
+    background-color: orange;
+}
+
+a{
+    text-decoration:none;                                   /* text-decoration -> for removing underline on the link*/
+}

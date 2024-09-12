@@ -1,24 +1,16 @@
-@php
-    
-    $fruit=['one'=>'apple','two'=>'orange','three'=>'lemon','four'=>'pinapple','five'=>'grapes'];
-    $condition=false;
-@endphp
+@include('pages.header')
 
-@include('pages.header', ['names'=>$fruit])
+            <div class="row">
+                <div class="col-9" id="content" >
+                    <h2> HOME PAGES </h2>
+                    <p>Bootstrap employs a handful of important global styles and settings that you’ll need to be aware of when using it, 
+                         all of which are almost exclusively geared towards the normalization of cross browser styles.
+                          Let’s dive in.Bootstrap is developed mobile first,
+                         a strategy in which we optimize code for mobile devices first
+                         and then scale up components as necessary using CSS media queries.
+                          To ensure proper rendering and touch zooming for all devices, add the responsive viewport meta tag to your. 
+                    </p>
+                </div>
+               @include('pages.sidebar')
 
-
-{{-- if the condition will be true than header file wil be includeed in it --}}
-@includeWhen($condition,'pages.header',['names'=>$fruit])
-
-
-{{-- if the condition will be false than  header file wil be includeed in it --}}
-{{-- it is opposite to the @includeWhen --}}
-@includeUnless($condition,'pages.header',['names' => $fruit])
-
-
-<h1>Home pages </h1>
-
-@include('pages.footer')
-@includeIf('pages.content')       {{-- it will be 1st check this file is exist or not, if it exist they will be include that file  --}}
-
-
+           @include('pages.footer')
