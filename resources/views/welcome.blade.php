@@ -1,44 +1,24 @@
-{!!'<h1>Basic syntax of blade template</h1>'!!}
-<br>
-{{'3+5='}}
-{{3+5}}
-
-<br><br>
-{{"hello world"}}
-
-<br><br>
-{{"<h1>hello world </h1>"}}
-
-<br><br>
-{!!"<script>alert('hello , Good morning ') </script>"!!}
-
-{{-- {{comment statement}} --}}
-
-<br><br>
 @php
-$user="declare variable";
-$name=['arigit singh','akshay kumar', 'priyanka chopra', 'pankaj tripathi','sharukh khan'];
+    
+    $fruit=['one'=>'apple','two'=>'orange','three'=>'lemon','four'=>'pinapple','five'=>'grapes'];
+    $condition=false;
 @endphp
-{{$user}}
 
-<br>
-@{{$user}}
-<br>
-@@if()
+@include('pages.header', ['names'=>$fruit])
 
-<br><br>
-<ul>
-    @foreach ($name as $n )
-    @if($loop->odd)
-        <li  style="color:red ;">{{$n}}</li>
-    @elseif($loop->even)
-        <li  style="color:rgb(21, 196, 33) ;">{{$n}}</li>
-    {{-- @else
-        <li  style="color:red ;">{{$n}}</li> --}}
-    @endif
-    @endforeach
-</ul>
 
-<br>
+{{-- if the condition will be true than header file wil be includeed in it --}}
+@includeWhen($condition,'pages.header',['names'=>$fruit])
+
+
+{{-- if the condition will be false than  header file wil be includeed in it --}}
+{{-- it is opposite to the @includeWhen --}}
+@includeUnless($condition,'pages.header',['names' => $fruit])
+
+
+<h1>Home pages </h1>
+
+@include('pages.footer')
+@includeIf('pages.content')       {{-- it will be 1st check this file is exist or not, if it exist they will be include that file  --}}
 
 
