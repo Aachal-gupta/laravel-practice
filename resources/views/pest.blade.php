@@ -1,22 +1,16 @@
-@include('pages.header')
+@extends('layout.masterlayout')
 
-            <div class="row">
-                <div class="col-9" id="content" >
-                    <h2> PEST PAGES </h2>
-                    <p>Bootstrap employs a handful of important global styles and settings that you’ll need to be aware of when using it, 
-                         all of which are almost exclusively geared towards the normalization of cross browser styles.
-                          Let’s dive in.Bootstrap is developed mobile first,
-                         a strategy in which we optimize code for mobile devices first
-                         and then scale up components as necessary using CSS media queries.
-                          To ensure proper rendering and touch zooming for all devices, add the responsive viewport meta tag to your.
-                          Bootstrap employs a handful of important global styles and settings that you’ll need to be aware of when using it, 
-                         all of which are almost exclusively geared towards the normalization of cross browser styles.
-                          Let’s dive in.Bootstrap is developed mobile first,
-                         a strategy in which we optimize code for mobile devices first
-                         and then scale up components as necessary using CSS media queries.
-                          To ensure proper rendering and touch zooming for all devices, add the responsive viewport meta tag to your.  
-                    </p>
-                </div>
-               @include('pages.sidebar')
+@section('content')
+<h2> pest page</h2>
+<p>The yield directive defines placeholders or sections within a layout 
+    that child views can fill in with their own content.
+     It's like leaving a blank spot in your master layout that different
+      pages can populate with specific content.
 
-           @include('pages.footer')
+</p>
+@endsection
+
+@section('sidebar')
+@parent
+this is inheritance :parent to child data is recived by section and parent directives
+@endsection

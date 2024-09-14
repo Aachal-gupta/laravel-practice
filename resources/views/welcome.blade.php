@@ -1,16 +1,10 @@
-@include('pages.header')
+@extends('layout.masterlayout')
 
-            <div class="row">
-                <div class="col-9" id="content" >
-                    <h2> HOME PAGES </h2>
-                    <p>Bootstrap employs a handful of important global styles and settings that you’ll need to be aware of when using it, 
-                         all of which are almost exclusively geared towards the normalization of cross browser styles.
-                          Let’s dive in.Bootstrap is developed mobile first,
-                         a strategy in which we optimize code for mobile devices first
-                         and then scale up components as necessary using CSS media queries.
-                          To ensure proper rendering and touch zooming for all devices, add the responsive viewport meta tag to your. 
-                    </p>
-                </div>
-               @include('pages.sidebar')
+@section('content')
+    <h2>HOME Page</h2>
+    <p>The 'extends'directive is used to inherit a layout from a parent or master template. It tells Blade which layout this particular view should use.</p>
+@endsection
 
-           @include('pages.footer')
+@section('title')
+home 
+@endsection
