@@ -10,6 +10,7 @@
          
          <link rel="stylesheet" href="css/style.css">
 
+        @stack('style')
     </head>
     <body>
         <div class="container">
@@ -32,7 +33,7 @@
             </div>
 
             <div class="row">
-                <div class="col-9" id="content" >
+                <div class="col-9" id="wrapper"  >
 
                     @hasSection('content')
                      @yield('content')  
@@ -67,7 +68,7 @@
 
         </div>
 
-       
+       @stack('scripts')
        
     </body>
 </html>
