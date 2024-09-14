@@ -14,4 +14,7 @@ Route::get('/pest',function(){
     return view('pest');
 });
 
+Route::get('/test',function(){
+    return view('test');
+});
 
