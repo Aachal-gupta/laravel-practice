@@ -1,8 +1,3 @@
+<h1>test page</h1>
+<h2>id={{$id}}</h2>   {{-- localhost:8000/test/aachal --}}
 
-
-{{-- ******   for array   ******* --}}
-@foreach ($user as $id=>$u)
-    <h3>{!!$id!!} |{{$u['name']}} | {{$u['phone']}} | {{$u['city']}}
-      | <a href="{{route('view.user',$id)}}">show</a>  
-    </h3>
-@endforeach
