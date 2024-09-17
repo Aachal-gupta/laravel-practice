@@ -1,0 +1,28 @@
+// database crate by terminal cammand
+php artisan make:migration create_tablename_table
+php artisan migrate 
+// start xamp and show database laravel and in that table student /tablename + migration table which form auto
+//make column in side that file which is make after execution of cammand  
+
+
+//******* CHECK STATUS OF TABLE IN DB*********
+php artisan migrate:status
+
+//******Rollback ******
+php artisan migrate:rollback
+// this cmmand will be delete last table from db which i made at last time and if we want to back that tabke return for that 
+//cmaand is->
+php artisan migrate
+
+//*******delete particular table in db*******
+php artisan migrate:rollback --batch=2
+//you can watch batch no. in migration table batch no=2 will be delete table
+
+//*****aALL TABLE WILL BE DELETE ****
+php artisan migrate:reset   //all table will be deleted except migration table 
+//we can do back mean all deleted table will appear by -> php artisan migrate
+
+//*******  RESET  *******
+// after edit in file you have to write cmmand
+php artisan migrate:reset // it will be delete all table and then make all table 
+php artisan migrate
