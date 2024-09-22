@@ -50,3 +50,18 @@ php artisan migrate
         Schema::rename('student','students');
         // delete table 
         // Schema::dropIfExists('users'); -->
+
+        <!-- endation-2 -->
+
+        <!-- migration primary and foreign key -->
+        php artisan make:migration create_c-students_table
+        Schema::create('students', function (Blueprint $table) {
+            $table->id();
+            $table->string('Name',40);
+            $table->string('Email',50)->nullable()->unique();
+
+        });
+
+        <!-- foreign key with Cascade -->
+         <!-- if we want to change data in db table that column which is primary and foreign key -->
+          
