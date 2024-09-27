@@ -65,3 +65,37 @@ php artisan migrate
         <!-- foreign key with Cascade -->
          <!-- if we want to change data in db table that column which is primary and foreign key -->
           
+
+*******************************************************************************************************************************************
+SEEDERS    and  STEPS                                          |
+****************************************************|
+insert date by seeding in two method|
+                                    |->seeder   means Real data insert in table
+                                    |->factory  means Fake data insert in table
+For that there is 5 method 
+1> create database
+2> create database migration -> mean create tables in database
+3>Seeding    -> means insert data fake/real
+4>create model
+5>camaand ->   php artisna db:seed 
+
+*4> first make model -> php artisan make :model student 
+don't take 's' in students , it will create student.php file in model folder
+
+*3> maake seeder file-> php artisan make:seeder StudentSeeder
+it will create a studentseeder file in database/seeder folder
+in seeder file add path of model file student like->use App/Models/student
+
+*) in create migration file add $table->timestamps();
+in /studentSeeder.php file  write data in key value parse_ini_file and in databseSeeder file call that mathod which is in declare
+in studentSeeder.php file ->likethis call function 
+
+$this->call([
+    StudentSeeder::class      <!--write here class name in studentSeeder  file  -->
+    ]);
+   <!-- after that run this command  -->
+    php artisna migrate:refresh 
+     <!--this cammand will delete all table and make/execute all table but data will be deleted  -->
+     php artisna db:seed  
+
+
