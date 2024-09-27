@@ -15,13 +15,15 @@ class StudentSeeder extends Seeder
      */
     public function run(): void
     {
-        $json = File::get(path:'database/json/students.json');
-        $students = collect(json_decode($json)); // this function will variable $json will be convert in array
-        $students -> each(function($student){
-           student::create([
-            'name'=> $student->name,
-            'email'=> $student->email
-           ]);
-        });
+
+        
+    //     $json = File::get(path:'database/json/students.json');
+    //     $students = collect(json_decode($json)); // this function will variable $json will be convert in array
+    //     $students -> each(function($student){
+    //        student::create([
+    //         'name'=> $student->name,
+    //         'email'=> $student->email
+    //        ]);
+    //     });
     }
 }
