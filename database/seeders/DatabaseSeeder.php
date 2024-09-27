@@ -12,10 +12,10 @@ class DatabaseSeeder extends Seeder
     
     public function run(): void
     {    
-          student::factory(5)->create();   // it add 5 data in db-student-table
-                            
-        // $this->call([           //there is call the all file name which is in seeder file
-        //     StudentSeeder::class
-        // ]);
+        //   student::factory(5)->create();   // it add 5 data in db-student-table
+
+        $this->call([           //there is call the all file name which is in seeder file
+            StudentSeeder::class
+        ]);
     }
 }
