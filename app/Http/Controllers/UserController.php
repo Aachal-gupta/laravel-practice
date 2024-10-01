@@ -36,11 +36,10 @@ class UserController extends Controller
        
 
                     $users = DB:: table('students')
-                                ->where('city','delhi')
-                                ->orwhere('name','like','s%')
-                                ->orderby('age','asc')
-                                ->limit(3)
-                                
+                                // ->where('city','delhi')
+                                // ->orwhere('name','like','s%')
+                                // ->orderby('age','asc')
+                                // ->limit(3)
                                 ->get(); 
                      return view('allusers',['data'=> $users]);       
     }
@@ -52,5 +51,63 @@ class UserController extends Controller
         // return $users;
         return view('user',['data'=>$users]);
     }
+
+    public function addUser(){
+        $add_user = DB::table('students')
+                    ->insertGetId(        //inert,insertOrIgnore,upsert
+                        [
+                            'name'=>'Amitabh_bb',
+                            'email' => 'Amitabhbb@gmail.com',
+                            'age' => 40,
+                            'city' => 'mumbai',
+                            'votes' => 455,   //http://localhost:8000/add
+                        ],
+                       
+                    );
+                    return $add_user;
+// dd($add_user);
+            // if($add_user){
+            //     echo "<h1>data added successfully</h1>";
+            // }else{
+            //     echo "Data not added .";
+            // }
+    }
+
+    public function updateUser(){
+        $user = DB::table('students')
+                
+                ->updateOrInsert([              //update,updateOrInsert,increament,decreament,increamentEach
+                    'email' => 'aachal@gmail.com',
+                    'name' => 'kaksh'
+                ],
+                [
+                    'age' => 23,
+                    'votes' => 345
+                ]
+            
+            );
+                
+             if($user){
+                echo "<h1>data added successfully</h1>";
+            }else{
+                echo "Data not added .";
+            }
+    }
+
+    public function deleteUser(string $id){
+        $delete_user = DB::table('students')
+                        ->where('id', $id)
+                        ->delete();
+
+            if($delete_user){
+                return redirect()->route('home');
+            }
+    }
+
+    // public function deleteAllData(){
+    //     $user = DB::table('students')
+    //             ->delete();    //all data will be remove of where clause is not put same as a truncate
+                    // ->truncate();        //and it will be reset id column , after that id start from 1
+    // }
 }
 
