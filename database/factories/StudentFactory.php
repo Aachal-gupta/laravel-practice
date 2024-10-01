@@ -16,15 +16,15 @@ class StudentFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            'name' =>fake()->name(),
-            'email'=>fake()->email(),
-            'age' =>fake()->numberBetween(15,20),
-            'password' =>fake()->password(),
-            'city' =>fake()->city(),
-            'address' =>fake()->address(),
-            'phone' =>fake()->phoneNumber()
+        // return [
+        //     'name' =>fake()->name(),
+        //     'email'=>fake()->email(),
+        //     'age' =>fake()->numberBetween(15,20),
+        //     'password' =>fake()->password(),
+        //     'city' =>fake()->city(),
+        //     'address' =>fake()->address(),
+        //     'phone' =>fake()->phoneNumber()
 
-        ];
+        // ];
     }
 }

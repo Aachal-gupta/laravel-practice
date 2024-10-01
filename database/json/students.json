@@ -1,14 +1,44 @@
 [
     {
         "name":"aachal",
-        "email":"aachal@gmail.com"
+        "email":"aachal@gmail.com",
+        "age":20,
+        "city":"pune",
+        "votes":200
     },
     {
         "name":"akashy",
-        "email":"akashay@gmail.com"
+        "email":"akashay@gmail.com",
+        "age":10,
+        "city":"mumbai",
+        "votes":500
     },
     {
         "name":"aastha",
-        "email":"aastha@gmail.com"
+        "email":"aastha@gmail.com",
+        "age":24,
+        "city":"delhi",
+        "votes":250
+    },
+    {
+        "name":"sakshi",
+        "email":"sakshia@gmail.com",
+        "age":15,
+        "city":"delhi",
+        "votes":350
+    },
+    {
+        "name":"samrudhi",
+        "email":"samrudhi@gmail.com",
+        "age":15,
+        "city":"delhi",
+        "votes":450
+    },
+    {
+        "name":"sai",
+        "email":"saia@gmail.com",
+        "age":15,
+        "city":"delhi",
+        "votes":250
     }
 ]

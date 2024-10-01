@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;    //put the path of file which is set on controller
-use App\Http\Controllers\TestingController;    //put the path of file which is set on controller
+// use App\Http\Controllers\TestingController;    //put the path of file which is set on controller
 
 
 // Route::get('/', function () {    //this is home page
@@ -18,12 +18,9 @@ use App\Http\Controllers\TestingController;    //put the path of file which is s
 // above like we need to write this type of code multiple time so in that place we can use this group function to easy to 
 //to write clean and short  same code 
 
-Route::controller(UserController::class)->group(function(){
- Route::get('/contact','showData')->name('contact');
-Route::get('/test/{id}','viewData')->name('testing');
-                             
-Route::get('/blog','showBlog')->name('bloging');
-Route::get('/','showHome')->name('home');
-});
 
-Route::get('/demo',TestingController::class);  //TestingController is our class which is make in our controller folder
+                             
+
+
+Route::get('/',[UserController::class,'showUsers']);
+Route::get('/user/{id}',[UserController::class, 'singleUser'])->name('view.user');

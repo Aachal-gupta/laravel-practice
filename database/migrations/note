@@ -99,3 +99,27 @@ $this->call([
      php artisna db:seed  
 
 
+*****************************************************|
+Fake data in database table                          |               
+*****************************************************|
+create factory file 
+php artisan make:factory StudentFactory
+for refresh-> php artisan migrate:refresh
+add data command-> php artisan db:seed
+
+//migration and seeding data both at single cmd
+php artisan migrate:fresh --seed
+
+
+
+*****************************************************|
+            Create Model                             |
+Query builder -->controller                          |               
+*****************************************************|
+
+*) perform CRUD operation on db
+
+
+-------------
+* Read data *   
+-------------
