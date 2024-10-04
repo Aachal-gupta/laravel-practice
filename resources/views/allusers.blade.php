@@ -52,6 +52,9 @@
                     </tr>
                     @endforeach
                 </table>
+                 <div class="mt-5">    {{-- add simplePagination --}}
+                    {{$data->links('pagination::bootstrap-5')}}     {{-- for paginat(4) we use bootstrap-5 or tailwind--}}
+                </div>
             </div>
         </div>
     </div>

@@ -45,7 +45,9 @@ class UserController extends Controller
                                 // ->orwhere('name','like','s%')
                                 // ->orderby('age','asc')
                                 // ->limit(3)
-                                ->get(); 
+                                ->orderby('age')
+                                // ->simplePaginate(4);    // we can take order by id also
+                                ->paginate(4); 
                      return view('allusers',['data'=> $users]);       
     }
 
