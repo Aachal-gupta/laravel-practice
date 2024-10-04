@@ -24,7 +24,12 @@ use App\Http\Controllers\UserController;    //put the path of file which is set 
 
 Route::get('/',[UserController::class,'showUsers'])->name('home');
 Route::get('/user/{id}',[UserController::class, 'singleUser'])->name('view.user');
-Route::get('/add',[UserController::class, 'addUser']);
-Route::get('/update',[UserController::class, 'updateUser'] );
+
+Route::post('/add', [UserController::class, 'addUser'])->name('add.user');
+Route::view('newuser','/addUser');
+
+Route::post('/update/{id}',[UserController::class, 'updateUser'] )->name('update.user'); //this is used at the time of submit /update btn click so use post 
+Route::get('/updatepage/{id}',[UserController::class, 'updatePage'] )->name('update.page');
+
 Route::get('/delete/{id}', [UserController::class, 'deleteUser'])->name('delete.user');
 Route::get('/delete', [UserController::class, 'deleteAllData']);
