@@ -121,5 +121,10 @@ Query builder -->controller                          |
 
 
 -------------
-* Read data *   
+* Read data *   by get method 
 -------------
+
+-------------
+PAGINATION        DB::table9(tablename')->paginate(5)
+-------------
+

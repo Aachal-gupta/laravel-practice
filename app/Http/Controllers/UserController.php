@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -75,7 +76,7 @@ class UserController extends Controller
             // dd($add_user);
 
             if($add_user){
-                return redirect->route('home');
+                return redirect()->route('home')->with('success', 'Data saved successfully!');
                 // echo "<h1>data added successfully</h1>";
             }else{
                 echo "Data not added .";
