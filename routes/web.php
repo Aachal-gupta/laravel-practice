@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;    //put the path of file which is set on controller
-// use App\Http\Controllers\TestingController;    //put the path of file which is set on controller
+use App\Http\Controllers\StudentController;;    //put the path of file which is set on controller
 
 
 // Route::get('/', function () {    //this is home page
@@ -33,3 +33,5 @@ Route::get('/updatepage/{id}',[UserController::class, 'updatePage'] )->name('upd
 
 Route::get('/delete/{id}', [UserController::class, 'deleteUser'])->name('delete.user');
 Route::get('/delete', [UserController::class, 'deleteAllData']);
+
+Route::get('/students',[StudentController::class,'showStudent']);

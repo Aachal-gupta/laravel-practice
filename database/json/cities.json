@@ -1,0 +1,21 @@
+[
+    {
+        "id":1,
+        "city_name":"pune"
+    },
+
+    {
+        "id":2,
+        "city_name":"bangal"
+    },
+
+    {
+        "id":3,
+        "city_name":"mumbai"
+    },
+
+    {
+        "id":4,
+        "city_name":"Kolkata"
+    }
+]

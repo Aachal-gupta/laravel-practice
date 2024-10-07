@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email',50)->nullable()->unique();
             $table->integer('age');
             // $table->string('password');
-            $table->string('city');
+            $table->integer('city');
             // $table->string('address');
             $table->integer('votes');
         

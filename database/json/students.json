@@ -3,42 +3,42 @@
         "name":"aachal",
         "email":"aachal@gmail.com",
         "age":20,
-        "city":"pune",
+        "city":2,
         "votes":200
     },
     {
         "name":"akashy",
         "email":"akashay@gmail.com",
         "age":10,
-        "city":"mumbai",
+        "city":1,
         "votes":500
     },
     {
         "name":"aastha",
         "email":"aastha@gmail.com",
         "age":24,
-        "city":"delhi",
+        "city":4,
         "votes":250
     },
     {
         "name":"sakshi",
         "email":"sakshia@gmail.com",
         "age":15,
-        "city":"delhi",
+        "city":5,
         "votes":350
     },
     {
         "name":"samrudhi",
         "email":"samrudhi@gmail.com",
         "age":15,
-        "city":"delhi",
+        "city":1,
         "votes":450
     },
     {
         "name":"sai",
         "email":"saia@gmail.com",
         "age":15,
-        "city":"delhi",
+        "city":1,
         "votes":250
     }
 ]
