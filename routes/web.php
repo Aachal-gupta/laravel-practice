@@ -39,3 +39,4 @@ Route::get('/students',[StudentController::class,'showStudent']);
 Route::get('/union',[lacaturerController::class, 'lecturData']);
 
 Route::get('/when',[lacaturerController::class, 'whenData']);
+Route::get('/chunk',[lacaturerController::class, 'chunkData']);
