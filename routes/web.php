@@ -37,3 +37,5 @@ Route::get('/delete', [UserController::class, 'deleteAllData']);
 
 Route::get('/students',[StudentController::class,'showStudent']);
 Route::get('/union',[lacaturerController::class, 'lecturData']);
+
+Route::get('/when',[lacaturerController::class, 'whenData']);
