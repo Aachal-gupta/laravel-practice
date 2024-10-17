@@ -21,5 +21,9 @@ class DatabaseSeeder extends Seeder
         $this->call([           //there is call the all file name which is in seeder file
             citiesSeeder::class
         ]);
+
+        $this->call([
+            lecturerSeeder::class
+        ]);
     }
 }

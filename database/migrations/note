@@ -128,3 +128,18 @@ Query builder -->controller                          |
 PAGINATION        DB::table9(tablename')->paginate(5)
 -------------
 
+____________________________________________________________________
+1] php artisan make:migration create_student_table
+
+2]  php artisan make:seeder lecturerSeeder
+
+3] php artisan make:controller lacaturerController --model=lacturer  // it will make both model as well as controller file
+
+__*notes__________________________________________________________________
+[
+    1> in migration file always be plural form .at last file name will be s
+    2> in seeder file ,model file and controller file name will  be 1st letter should be capital 
+    3>for execution use this cmmand   php artisan migrate:refresh and  php artisan db:seed
+    
+    
+]
