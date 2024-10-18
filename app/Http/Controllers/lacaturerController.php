@@ -72,4 +72,22 @@ class lacaturerController extends Controller
 
 
   }
+
+  // RAw METHOD FOR QUERY BUILDER
+
+  public function rawData(){
+    $student = DB::table('students')
+              // ->selectRaw('name, age')
+              // ->whereRaw('age > ? and name like ?',[15,'a%'])
+              // ->orderByRaw('age DESC,name')
+
+              ->selectRaw('count(*) as student_count, age')
+              ->groupByRaw('age')
+              ->havingRaw('age < ?',[20])
+              ->get();   //in that place we can use ->toSql(); for checking sql cammand
+
+              return $student;
+  }
+
+
 }

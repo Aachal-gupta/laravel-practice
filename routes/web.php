@@ -41,3 +41,4 @@ Route::get('/union',[lacaturerController::class, 'lecturData']);
 Route::get('/when',[lacaturerController::class, 'whenData']);
 Route::get('/chunk',[lacaturerController::class, 'chunkData']);
 Route::get('/sql',[lacaturerController::class, 'queryData']);
+Route::get('/raw',[lacaturerController::class, 'rawData']);
