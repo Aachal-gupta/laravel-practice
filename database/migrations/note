@@ -96,7 +96,7 @@ $this->call([
    <!-- after that run this command  -->
     php artisna migrate:refresh 
      <!--this cammand will delete all table and make/execute all table but data will be deleted  -->
-     php artisna db:seed  
+     php artisan  db:seed  
 
 
 *****************************************************|
@@ -143,3 +143,43 @@ __*notes__________________________________________________________________
     
     
 ]
+
+
+_________________________________________________________________________________________________________________________________________________________________
+  
+Q1] why we use resources on laravel ?
+--> Laravel provides resource controllers to simplify the handling of CRUD operations.
+    When you create a resource controller, Laravel automatically assigns standard routes (like index, show, create, store, edit, update, and destroy)
+    to the controller methods.this methods already defined in  controller file
+    by this command  we create file php artisan make:controller ProductController --resource
+
+Q2] what is Resource controller ?
+    Controllers that follow RESTful patterns, primarily used for managing resources in a CRUD format. 
+    They simplify routing by automatically linking common HTTP verbs to specific methods.
+    in route -> Route::resource('any-name', ProductController::class);
+
+Q3] what is invokable Controllers ?
+-->  Controllers that contain a single __invoke method, allowing them to act as a single-action controller.
+     Useful for tasks that only need one action, like a contact form or login. 
+     php artisan make:controller ContactController --invokable
+
+Q4] what is API Controllers ?
+    API Controllers: Similar to resource controllers but designed for API routes.
+    You can use the --api flag when creating them to exclude methods like create and edit, 
+    which are not typically used in APIs.
+    php artisan make:controller ProductController --api
+
+**]  RESTful mean --> RESTful refers to web services or APIs that follow the principles of REST (Representational State Transfer), an architectural style for designing networked applications. In a RESTful system, resources are uniquely identified and interacted with through standard HTTP methods. The goal is to create stateless, scalable, and easy-to-understand APIs by following specific guidelines.
+
+types of controller:-
+
+1] Basic Controller : php artisan make:controller UserController
+ <!-- in that file we can make many function in one controller files  -->
+2] single Action Controller : php artisan make:controller UserController --invokable
+<!-- in that file we can make only one method  -->
+3] Resource Controller : php artisan make:controller UserController --resource
+<!-- in that file we use for CRUD operation . in that file already made it method/function like index, create ,store , show ,destroy , update, edit -->
+<!--  in this we do not need to make route for every function just make add controller file path and and write route for one time 
+  Route::resource('myfile',MyController::class); and now put on terminal   php artisan route:list --name=myfile this will show how to call this function                          -->
+________________________________________________________________________________________________________________________________________________________________
+

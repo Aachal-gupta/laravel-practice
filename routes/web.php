@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;    //put the path of file which is set on controller
 use App\Http\Controllers\StudentController;   //put the path of file which is set on controller
 use App\Http\Controllers\lacaturerController;
+use App\Http\Controllers\MyController;
 
 
 // Route::get('/', function () {    //this is home page
@@ -42,3 +43,22 @@ Route::get('/when',[lacaturerController::class, 'whenData']);
 Route::get('/chunk',[lacaturerController::class, 'chunkData']);
 Route::get('/sql',[lacaturerController::class, 'queryData']);
 Route::get('/raw',[lacaturerController::class, 'rawData']);
+
+
+
+//in the place of myfile we can take any name which is shown in URL
+Route::resource('myfile',MyController::class);   //http://localhost:8000/myfile/
+// OR  
+// Route::resource('myfile',MyController::class)->only([
+//     'create','update','edit'    // i want only this function execute not other function in my resource mycontroller file 
+// ]);
+
+// Route::resource('myfile',MyController::class)->except([
+//     'destroy','show'    // i want only this function DO NOT EXECUTE  in my resource mycontroller file 
+// ]);
+
+// Route::resource('myfile',MyController::class)->names([
+//     'create' => 'myfile.build',
+//     'update' => 'myfile.add'     //from this way we can change the name of that methods route name
+// ]);
+
