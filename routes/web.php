@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;    //put the path of file which is set 
 use App\Http\Controllers\StudentController;   //put the path of file which is set on controller
 use App\Http\Controllers\lacaturerController;
 use App\Http\Controllers\MyController;
+use App\Http\Controllers\OrmuserController;
 
 
 // Route::get('/', function () {    //this is home page
@@ -62,3 +63,5 @@ Route::resource('myfile',MyController::class);   //http://localhost:8000/myfile/
 //     'update' => 'myfile.add'     //from this way we can change the name of that methods route name
 // ]);
 
+
+Route::resource('/home',OrmuserController::class);

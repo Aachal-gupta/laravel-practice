@@ -183,3 +183,24 @@ types of controller:-
   Route::resource('myfile',MyController::class); and now put on terminal   php artisan route:list --name=myfile this will show how to call this function                          -->
 ________________________________________________________________________________________________________________________________________________________________
 
+Q1] what is ORM ? 
+    In Laravel, ORM stands for Object-Relational Mapping, and Laravel's ORM is called Eloquent.
+    Eloquent ORM is a built-in, powerful feature that allows you to interact with your database in an intuitive, object-oriented way.
+    It essentially maps your database tables to corresponding models in Laravel, making it easier to work with complex data relationships
+    without writing extensive SQL queries.
+
+* Key Features of Eloquent ORM in Laravel:
+    Models: Each database table has a corresponding "Model" in Laravel, making it easy to query and manipulate data in that table.
+    CRUD Operations: Eloquent provides methods for Create, Read, Update, and Delete operations, allowing you to interact with the database effortlessly.
+    Relationships: It handles relationships between tables (e.g., one-to-many, many-to-many, etc.) with simple methods, so you can easily retrieve related data.
+    Query Builder: Eloquent provides a fluent, chainable query builder that makes it easy to construct complex SQL queries using PHP methods.
+
+   * For example, if you have a users table, you can create a User model in Laravel. With Eloquent, you can then fetch all users like this:
+        $users = User::all();
+        $user = User::find(1);
+        Eloquent makes working with databases more straightforward and is highly integrated with Laravel's other features, making it a popular choice for many developers.
+*******************************************************************************************
+
+1] create model and controller resource file both  by this single command 
+    <!-- php artisan make:model Ormuser --controller --resource -->
+    
