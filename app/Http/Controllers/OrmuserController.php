@@ -13,10 +13,15 @@ class OrmuserController extends Controller
      */
     public function index()
     {
-        $data = Lecturer::all();  //Lecturer is a model name which include on top of the file 
-        // return $users; or
-        // foreach($users as $user)
-        // echo $user->name ."  ".$user->email ."<br><br>";
+        // $data = Lecturer::all();  //Lecturer is a model name which include on top of the file 
+        // // return $users; or
+        // // foreach($users as $user)
+        // // echo $user->name ."  ".$user->email ."<br><br>";
+        // return view("orm/home",compact('data'));
+
+        // or for pagination
+
+        $data = Lecturer::simplepaginate(3);
         return view("orm/home",compact('data'));
     }
 
@@ -33,6 +38,17 @@ class OrmuserController extends Controller
      */
     public function store(Request $request)
     {
+
+        // vallidation
+
+        $request->validate([
+            'username' => 'required|regex:/^[a-zA-Z\s]+$/',
+            'useremail' => 'required|email',
+            'userage' => 'required|numeric',
+            'usercity' => 'required|numeric',
+            'uservotes' => 'required|string',
+        ]);
+
         // return request;  insert form data by  below method 1
 
         // $userdata = new Lecturer;
@@ -71,24 +87,80 @@ class OrmuserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Ormuser $ormuser)
+    public function edit(string $ormuser)
     {
-        return view('orm/update');
+        $edit_data=Lecturer::find($ormuser);
+        // return $edit_data;
+        return view('orm/update',compact('edit_data'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Ormuser $ormuser)
+    public function update(Request $request, string $id)
     {
-        //
+
+        // vallidation
+
+        $request->validate([
+            'username'=> 'required | string',   //alpha is not work here 
+            'useremail'=> 'required | email',
+            'userage'=>'required | numeric',
+            'usercity'=>'required | numeric',
+            'uservotes'=>'required | numeric',
+        ]);
+    //    $update_data = Lecturer::find($id);
+
+    //    $update_data->name = $request->username;
+    //    $update_data->email = $request->useremail;
+    //    $update_data->age = $request->userage;
+    //    $update_data->city = $request->usercity;
+    //    $update_data->votes = $request->uservotes;
+    //    $update_data->save();
+
+    //    return redirect()->route('home.index')
+    //                     ->with('status','User data updated Successfully. ');
+
+
+        // 2ND METHOD MASS UPDATED
+
+            $u_data = Lecturer::where('id',$id)
+                              ->update([
+                                'name'=>$request->username,  //we can put multiple data in this method in array form 
+                                'email'=>$request->useremail,
+                                'age'=>$request->userage,
+                                'city'=>$request->usercity,
+                                'votes'=>$request->uservotes,
+                            ]);
+
+
+            return redirect()->route('home.index')
+                             ->with('status','User data updated Successfully. ');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Ormuser $ormuser)
+    public function destroy(string $id)
     {
-        //
+        $user = Lecturer::find($id);
+        $user->delete();
+
+        return redirect()->route('home.index')
+                         ->with('status','User data  deleted Successfully. ');
+
+
+        // OR
+        //WE CAN DELETE MANY DATA BY ID destroy(2,3)
+        // Lecturer::destroy($id);
+
+        // return redirect()->route('home.index')
+                        //  ->with('status','User data  deleted Successfully. ');
+
+
+            // OR
+            // WE CAN DELETE ALL DATA OF TABLE
+            // Lecturer::truncate();
     }
 }
