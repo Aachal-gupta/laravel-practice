@@ -203,4 +203,10 @@ Q1] what is ORM ?
 
 1] create model and controller resource file both  by this single command 
     <!-- php artisan make:model Ormuser --controller --resource -->
-    
+
+
+    <!-- CHANGE DATABASE TABLE NAME ONLY IN RESOURCES CONTROLLER -->
+     1] first go on phpmyadmin database , then on table click option  Operation and change table name 
+     2] go on model of the same table and put    protected $table = "new_table_name";
+     3] php artisan serve
+     *) dont use that table name in file , we use table name which is eriiten in model in plural form.  (s)

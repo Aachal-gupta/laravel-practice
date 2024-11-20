@@ -9,6 +9,7 @@ class Lecturer extends Model
 {
     use HasFactory;
     public $timestamps=false;
+    protected $table = "lecturers_table";
 
     //protected $guarded = []; // all form data will be saved in db by this method
     // or

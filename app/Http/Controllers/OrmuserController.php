@@ -21,8 +21,10 @@ class OrmuserController extends Controller
 
         // or for pagination
 
-        $data = Lecturer::simplepaginate(3);
+        $data = Lecturer::simplepaginate(3);    // use here model name 
         return view("orm/home",compact('data'));
+
+       
     }
 
     /**
