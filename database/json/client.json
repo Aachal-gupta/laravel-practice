@@ -1,0 +1,43 @@
+[
+    {
+        "name":"aachal",
+        "age":20,
+        "gender":"male"
+       
+    },
+    {
+        "name":"akashy",
+           "gender":"male",
+        "age":10
+    },
+    {
+        "name":"aastha",
+          "gender":"male",
+        "age":24
+    },
+    {
+        "name":"sakshi",
+          "gender":"male",
+        "age":15
+    },
+    {
+        "name":"samrudhi",
+           "gender":"male",
+        "age":15
+    },
+    {
+        "name":"sai",
+           "gender":"male",
+        "age":15
+    },
+    {
+        "name": "John Doe",
+        "age": 25,
+        "gender": "Male"
+    },
+    {
+        "name": "Jane Doe",
+        "age": 30,
+        "gender": "Female"
+    }
+]

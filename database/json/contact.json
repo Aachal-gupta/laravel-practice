@@ -1,0 +1,44 @@
+[
+    {
+        "email": "abc2@example.com",
+        "phone": "1234567890",
+        "address": "123 Main St",
+        "city": "New York",
+        "clients_id": 1
+    },
+    {
+        "email": "mohae@example.com",
+        "phone": "9876543210",
+        "address": "456 Elm St",
+        "city": "Los mum",
+        "clients_id": 2
+    },
+    {
+        "email": "lan@example.com",
+        "phone": "1234567890",
+        "address": "123 Main St",
+        "city": "New pan",
+        "clients_id": 3
+    },
+    {
+        "email": "cdde@example.com",
+        "phone": "9876543210",
+        "address": "456 Elm St",
+        "city": "Los pune",
+        "clients_id": 4
+    },
+    {
+        "email": "abc1@example.com",
+        "phone": "123456660",
+        "address": "123 Main St",
+        "city": "New York",
+        "clients_id": 5
+    },
+    {
+        "email": "jaee@example.com",
+        "phone": "9876563210",
+        "address": "456 Elm St",
+        "city": "Los ert",
+        "clients_id": 6
+    }
+]

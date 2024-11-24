@@ -6,6 +6,8 @@ use App\Http\Controllers\StudentController;   //put the path of file which is se
 use App\Http\Controllers\lacaturerController;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\OrmuserController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ContactController;
 
 
 // Route::get('/', function () {    //this is home page
@@ -65,3 +67,9 @@ Route::resource('myfile',MyController::class);   //http://localhost:8000/myfile/
 
 
 Route::resource('/home',OrmuserController::class);
+
+//for one to one relationship
+Route::resource('/client',ClientController::class);
+
+//inverse one to one relation
+Route::get('/contact',[ContactController::class,'show']);

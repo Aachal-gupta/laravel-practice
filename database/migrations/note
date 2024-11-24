@@ -210,3 +210,35 @@ Q1] what is ORM ?
      2] go on model of the same table and put    protected $table = "new_table_name";
      3] php artisan serve
      *) dont use that table name in file , we use table name which is eriiten in model in plural form.  (s)
+
+
+     ________________________________________________________________________________________________________________________________________________________________
+                    LARAVEL ELOQUENT ONE TO ONE RELATIONSHIP
+                    
+        1] php artisan make:migration create_users_table  (CREATE TABLE  , IN MIGRATION FILE WE MAKE 2 TABLE WITH FOREIGN KEY)
+        2] php artisan migrate
+        3] php artisan make:controller ClientController --resource (make 2 controller )
+        4] php artisan make:controller ContactController  
+        5] php artisan make:model Contact  (make  2 model file )
+        6] php artisan make:model Client
+        7] php artisan make:seeder ContactSeeder        // make json file  and seeder file to insert data in db
+            php artisan make:seeder ContactSeeder 
+        8] php artisan db:seed --class=contactSeeder
+        9] in index function og ClientController file we fetch data and show  blow this 
+        <!-- $client = Client::where('gender','male')
+                        ->withWhereHas('contact',function($query){ //we can use whereHas,withWhereHas
+                            $query->where('city','New York');
+                        })->get();
+            return $client;  -->
+        10] in Client.php model we have to make a function . in that we use hasOne method for relation to other table 
+        <!-- public function contact(){
+            return $this->hasOne(Contact::class,'clients_id');  // there is  client file attached with contact file with one to one relation 
+        } // clients_id is a foreign key of contact table in data base
+  -->
+        11]make the route    like this Route::resource('/client',ClientController::class);
+        12] we can also make the inverse one to one relationship  by using belongsTo method in model file 
+
+       _______________________________________________________________________________________________________
+                            LARAVEL ELOQUENT ONE TO MANY RELATIONSHIP
+
+        1] 
