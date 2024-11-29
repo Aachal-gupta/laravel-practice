@@ -2,137 +2,106 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use App\Models\Post;
 
-// to make UserController file on terminal we can write this cmmand-> php artisan make:controller  UserController
-// inheritance => in this class inherit the Controller class which is made by default
-class UserController extends Controller    
+
+class UserController extends Controller
 {
-     //*********************************
-    // READ/FETCH USER DETAIL FROM DB
-    // *********************************
-    
-    public function showUsers(){
-        // $users = DB:: table('students')->get();                  //all data will be fetch from studnet table  in users variable
-        // return $users;  
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
 
-        //just comment on return and  we can debug bt this debug information
-        // dd($users);          //but after that line , all line of  code will be not run
-        // dump($users);           //in dd($users) place of that we can use this line for debuging but after this line all code will be run
-
-        // $users = DB:: table('students')->find(3);
-        // return $users; 
-
-        // $users = DB:: table('students')->get();
-        // return view('allusers',['data'=> $users]);
+        // ****** ONE TO MANY RELATION *****************
 
 
-        // $users = DB:: table('students')
-        //             // ->select('name','email as useremail','age')
-        //             ->select('name')
-        //             ->distinct()
-        //             ->where('city','pune')   
-        //             ->where('age','>',10)
-        //             ->get();
-                    // return $users ;
-                    // return view('allusers',['data'=> $users]);
-       
-
-                    $users = DB:: table('students')
-                                // ->where('city','delhi')
-                                // ->orwhere('name','like','s%')
-                                // ->orderby('age','asc')
-                                // ->limit(3)
-                                ->orderby('age')
-                                // ->simplePaginate(4);    // we can take order by id also
-                                ->paginate(4); 
-                     return view('allusers',['data'=> $users]);       
-    }
-
-
-
-    public function singleUser(string $id){
-        $users = DB:: table('students')->where('id',$id)->get();
+        // $users = User::get(); // Ii will show user table data
         // return $users;
-        return view('user',['data'=>$users]);
+
+        // $users = User::with('get_post')->get();  // in with function i called get_post function which is defined in model file User.php 
+        // return $users;
+
+    //     $users = User::with('get_post')->find(1);   
+    //     return $users;
+
+        // $users = User::doesntHave('get_post')->get();  // it show only those  user who does not have any post 
+        // return $users;
+
+        // $users = User::has('get_post')->with('get_post')->get();    //how many users have a post and how much
+        // return $users;
+
+        // $users = User::has('get_post','>=',3)
+        //             ->with('get_post')
+        //             ->get(); 
+        // return $users ;
+
+        $users = User::select(['name','email'])->withCount('get_post')->get();    //it will be count the post of each user
+            return $users;
+
     }
 
-    //********************
-    // ADD USER BY FORM
-    // ********************
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        // $posts = new Post([   //  //Post is  a object of Post class like we have do in OOP IN C++
+        //     'title'=> 'News title',
+        //     'description' => 'just testing....'
+        // ]);
+        // $user = User::find(2);   // it mean in post table create data and put the value of title and description and id is 2
+        // $user->get_post()->save($posts); // get_post is a function .
 
-    public function addUser(Request $req){
-        $add_user = DB::table('students')
-                    ->insert(        //inert,insertOrIgnore,upsert
-                        [
-                            'name'=> $req->username,
-                            'email' => $req->useremail,
-                            'age' => $req->userage,
-                            'city' => $req->usercity,
-                            'votes' => $req->uservotes,      
-                        ]  
-                    );
-                    
-            // dd($add_user);
+        // *****************2ND METHOD TH CREATE /INSERT****************
 
-            if($add_user){
-                return redirect()->route('home')->with('success', 'Data saved successfully!');
-                // echo "<h1>data added successfully</h1>";
-            }else{
-                echo "Data not added .";
-            }
+        $user = User::find(5);
+
+        $user->get_post()->create([  // we can put many data at a time by this method createMany([[data],[data]])
+            'title'=> 'Post title 2',
+            'description' => 'just testing.... 5'
+        ]);
     }
 
-    // ********************
-    // UPDATE USER BY FORM
-    // ********************
-
-    public function updatePage(string $id){
-
-        // $user = DB::table('students')->where('id',$id)->get();   //we can use find function in that place 
-        $user = DB::table('students')->find($id);   
-        return view('updateUser',['data'=>$user]);
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
     }
 
-    public function updateUser(Request $req, $id){
-        $user = DB::table('students')
-                ->where('id',$id)
-                ->update([
-                    'name' => $req->username,
-                    'email' => $req->useremail,
-                    'age' =>$req->userage,
-                    'city' => $req->usercity,
-                    'votes' => $req->uservotes
-                ]);
-                
-             if($user){
-                echo "<h1>data added successfully</h1>";
-            }else{
-                echo "Data not added .";
-            }
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
     }
 
-    // ********************
-    // DELETE USER BY FORM
-    // ********************
-
-    public function deleteUser(string $id){
-        $delete_user = DB::table('students')
-                        ->where('id', $id)
-                        ->delete();
-
-            if($delete_user){
-                return redirect()->route('home');
-            }
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
     }
 
-    
-    // public function deleteAllData(){
-    //     $user = DB::table('students')
-    //             ->delete();    //all data will be remove of where clause is not put same as a truncate
-                    // ->truncate();        //and it will be reset id column , after that id start from 1
-    // }
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
 }
-

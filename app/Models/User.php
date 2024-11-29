@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
+
 
 class User extends Model
 {
-    use HasFactory ;
-    public $timestamps=false;
+    use HasFactory;
+      // ****** ONE TO MANY RELATION *****************
+    public function get_post(){
+        return $this->hasmany(Post::class);    //hasmany(model name,foreign colum/key, primary key)
+    }
+    protected $guarded = [];
 }

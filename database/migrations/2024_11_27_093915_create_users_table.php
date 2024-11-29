@@ -11,25 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clients', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('age');
-            $table->string('gender');
-
-        });
-
-        Schema::create('contacts', function (Blueprint $table) {
-            $table->id(); 
             $table->string('email')->unique();
-            $table->string('phone');
-            $table->string('address');
-            $table->string('city');
-            $table->foreignId('client_id')
-                  ->references('id')
-                  ->on('clients')
-                  ->onDelete('cascade');
-
+           
         });
     }
 

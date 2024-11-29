@@ -1,17 +1,26 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Post;
 use Illuminate\Http\Request;
 
-class MyController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        echo "this is index page.";
+        // $post = Post::with('user')
+        //         ->where('id','3')   //in that place we can use withWhereHas fucntion
+        //         ->get();
+        // return $post;
+
+        $post = Post::withWhereHas('User',function($query){
+            $query->where('name','AACHAL GUPTA')
+                ->orWhere('name','SALMAN KHAN');
+            })->get();
+        return $post;
     }
 
     /**
@@ -19,7 +28,7 @@ class MyController extends Controller
      */
     public function create()
     {
-        echo "this is create method  page.";
+        //
     }
 
     /**
@@ -27,7 +36,7 @@ class MyController extends Controller
      */
     public function store(Request $request)
     {
-        // 
+        //
     }
 
     /**
@@ -35,7 +44,7 @@ class MyController extends Controller
      */
     public function show(string $id)
     {
-        echo "this is $id page.";
+        //
     }
 
     /**
@@ -43,7 +52,7 @@ class MyController extends Controller
      */
     public function edit(string $id)
     {
-        echo "this is edit page.";
+        //
     }
 
     /**
@@ -51,7 +60,7 @@ class MyController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        echo "this is update page.";
+        //
     }
 
     /**
@@ -59,6 +68,6 @@ class MyController extends Controller
      */
     public function destroy(string $id)
     {
-        // 
+        //
     }
 }

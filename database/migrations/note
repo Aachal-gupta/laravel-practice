@@ -241,4 +241,14 @@ Q1] what is ORM ?
        _______________________________________________________________________________________________________
                             LARAVEL ELOQUENT ONE TO MANY RELATIONSHIP
 
-        1] 
+       ***] i have changed database  -> for that first go on .env file and change db namespace
+         then use this 2 command php artisan config:cache
+            php artisan config:clear after that  make migration file  write command php artisan migrate
+
+       ***] php artisan migrate:fresh
+        This will drop all tables and re-run migrations for the new database.
+
+        1] php artisan make:migration create_post_table  
+        2] SAME AS ABOVE , JUST USE ONE TO MANY RELATION
+        inverse one to many relation is same as above like one to one relation
+ 
