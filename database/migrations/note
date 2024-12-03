@@ -251,11 +251,12 @@ Q1] what is ORM ?
         1] php artisan make:migration create_post_table  
         2] SAME AS ABOVE , JUST USE ONE TO MANY RELATION
         inverse one to many relation is same as above like one to one relation
- 
+        same as many to many relation 
 
+    _____________________________________________________________________________________________________________
+            One to One relation in (polymorphic)
 
-        
+        **)Suppose you have a Photo model that can be associated with either a User or a Product model.
+             This is a one-to-one polymorphic relationship since a single photo can belong to either a user or a product, but not both. in that we have to write (imageable_id) _id is important
 
-           
-
-           
+            
