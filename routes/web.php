@@ -8,6 +8,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PhotoController;
+use App\http\Controllers\TestController;
 
 
 
@@ -25,6 +26,9 @@ Route::resource('role',RoleController::class);
 Route::resource('client',ClientController::class);
 Route::resource('product',ProductController::class);
 Route::resource('photo',PhotoController::class);
+
+//json data put
+Route::resource('test',TestController::class);
 
 
 
