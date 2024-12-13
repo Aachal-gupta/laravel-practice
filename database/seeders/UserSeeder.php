@@ -6,9 +6,8 @@ use Illuminate\Support\Facades\DB;  //  add this db file
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Post;
 
-class PostSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,12 +15,12 @@ class PostSeeder extends Seeder
     public function run(): void
     {
        // Read the JSON file
-       $json = File::get(database_path('json/post.json'));
+       $json = File::get(database_path('json/user.json'));
 
        // Decode JSON data into an array
-       $posts = json_decode($json, true);
+       $users = json_decode($json, true);
 
        // Insert data into the 'posts' table
-       DB::table('posts')->insert($posts);
+       DB::table('users')->insert($users);   //users is table name in plural form 
     }
 }

@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tests', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->json('meta_data')->nullable();
+            $table->string('title',50);
+            $table->string('slug',100);
+            $table->longText('description');
+            $table->integer('counter')->default(0);
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }
@@ -23,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tests');
+        Schema::dropIfExists('posts');
     }
 };

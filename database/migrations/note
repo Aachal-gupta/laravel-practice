@@ -259,4 +259,111 @@ Q1] what is ORM ?
         **)Suppose you have a Photo model that can be associated with either a User or a Product model.
              This is a one-to-one polymorphic relationship since a single photo can belong to either a user or a product, but not both. in that we have to write (imageable_id) _id is important
 
-            
+            ________________________________________________________________________________________________
+                                                    OBSERVER
+                                                    ### What is an Observer in Laravel?
+
+An **Observer** in Laravel is a class that is used to listen to and handle events that occur during the lifecycle of a model. These events include actions like when a model is being created, updated, deleted, or retrieved.
+
+Observers are part of the **Observer Design Pattern**, and they help keep your codebase clean by moving the logic for model-related events into a separate class.
+
+---
+
+### Why Use an Observer?
+
+1. **Separation of Concerns**: Move model-related event logic out of the model itself, making your code cleaner and easier to maintain.
+2. **Code Reusability**: Reuse the same Observer across multiple models if needed.
+3. **Centralized Event Handling**: Manage all model events (create, update, delete, etc.) in one place.
+4. **Common Use Cases**:
+   - Logging model changes (e.g., logging when a record is created or deleted).
+   - Sending notifications or emails when certain actions occur.
+   - Automatically updating related models or attributes (e.g., updating a `last_updated_by` field).
+
+---
+
+### When to Use an Observer?
+
+- **When your model events require additional processing**: For example, sending an email or updating related models when a user is created.
+- **To handle repetitive tasks consistently**: Observers can standardize how model events are processed across your application.
+- **To maintain clean and testable code**: Avoid cluttering your model or controller logic.
+
+
+
+---
+
+### Supported Model Events in Observers
+
+Laravel Observers can listen to the following model events:
+1. **retrieved**: After a model is retrieved from the database.
+2. **creating**: Before a model is created.
+3. **created**: After a model has been created.
+4. **updating**: Before a model is updated.
+5. **updated**: After a model has been updated.
+6. **saving**: Before a model is saved (both creating and updating).
+7. **saved**: After a model is saved (both creating and updating).
+8. **deleting**: Before a model is deleted.
+9. **deleted**: After a model has been deleted.
+10. **restoring**: Before a model is restored from soft delete.
+11. **restored**: After a model has been restored.
+
+---
+
+### Benefits of Observers
+
+- **Cleaner Codebase**: Keeps business logic out of models and controllers.
+- **Easier Maintenance**: All event-related logic is centralized in one place.
+- **Consistency**: Ensures model events are handled uniformly across the application.
+
+_________________________________________________________________________________________________________________
+                                    EVENTS
+                                    ### What are Events in Laravel?
+
+In Laravel, **Events** are a way to handle and respond to specific actions or occurrences in your application. They allow you to **decouple your code** by letting different parts of your application react to an action without being tightly coupled to the code that triggers it.
+
+Events are part of the **Observer Design Pattern**, enabling you to listen for and handle specific events as they happen in your application, like a user login, a database update, or a file upload.
+
+---
+
+### Why Use Events in Laravel?
+
+1. **Decoupled Logic**: Events help separate the logic for specific tasks into independent listeners, making your code cleaner and more modular.
+2. **Reusable Code**: You can reuse the same listener for multiple events or reuse an event in multiple parts of your application.
+3. **Easier to Maintain**: Changes to an event or listener don't directly impact other parts of your application.
+4. **Common Use Cases**:
+   - Sending notifications or emails after a user action.
+   - Logging user activities like login or logout.
+   - Performing background jobs or triggering real-time broadcasts.
+
+---
+
+### How Events Work in Laravel
+
+An event consists of two main parts:
+1. **The Event**: Represents the action or occurrence you want to track.
+2. **The Listener**: Defines the tasks to be performed when the event occurs.
+
+---
+
+### When to Use Events?
+
+- **When you need to perform multiple actions on a single occurrence** (e.g., after user registration, send a welcome email and log the activity).
+- **When you want to decouple business logic** (e.g., separating notification logic from user registration logic).
+- **When triggering background jobs** (e.g., processing uploaded files or sending emails).
+
+
+
+### Laravel Event Flow Summary
+
+1. **Event is Created**: Represents a significant action, like user registration.
+2. **Event is Triggered**: Dispatch the event using `event(new EventName(...))`.
+3. **Listener is Invoked**: The corresponding listener handles the event.
+
+---
+
+### Benefits of Events in Laravel
+
+- **Clean Code**: Separates concerns by moving event-specific logic to listeners.
+- **Scalable**: Easily add new listeners to handle new tasks for the same event.
+- **Background Processing**: Use queues to process events asynchronously.
+- **Real-Time Updates**: Combine events with broadcasting to notify users in real time.
+

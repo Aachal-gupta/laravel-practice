@@ -1,0 +1,38 @@
+[
+    {
+        "id":"1",
+        "name":"aachal1",
+        "email":"aachal1@gmail.com"
+        
+    },
+    {
+        "id":"2",
+        "name":"akashy2",
+        "email":"akashay2@gmail.com"
+        
+    },
+    {
+        "id":"3",
+        "name":"aastha3",
+        "email":"aastha3@gmail.com"
+        
+    },
+    {
+        "id":"4",
+        "name":"sakshi1",
+        "email":"sakshi1@gmail.com"
+       
+    },
+    {
+        "id":"5",
+        "name":"samrudhi2",
+        "email":"samrudhi4@gmail.com"
+       
+    },
+    {
+        "id":"6",
+        "name":"sai",
+        "email":"saia@gmail.com"
+        
+    }
+]

@@ -1,26 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Post;
-use Illuminate\Http\Request;
 
-class PostController extends Controller
+use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Post;
+
+class PostController
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // $post = Post::with('user')
-        //         ->where('id','3')   //in that place we can use withWhereHas fucntion
-        //         ->get();
-        // return $post;
-
-        $post = Post::withWhereHas('User',function($query){
-            $query->where('name','AACHAL GUPTA')
-                ->orWhere('name','SALMAN KHAN');
-            })->get();
-        return $post;
+        $user = Post::with('user')->find(1);
+        return $user;
     }
 
     /**
