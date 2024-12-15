@@ -4,7 +4,7 @@
         "title":"post1",
         "slug":"model/post1",
         "description":"this is demo 1",
-        "counter":2,
+        "counter":0,
         "user_id":1
     },
 
@@ -13,7 +13,7 @@
         "title":"post1",
         "slug":"model/post1",
         "description":"this is demo 14",
-        "counter":4,
+        "counter":0,
         "user_id":1
     },
 
@@ -22,7 +22,7 @@
         "title":"post3",
         "slug":"model/post3",
         "description":"this is demo 15",
-        "counter":2,
+        "counter":0,
         "user_id":2
     },
 
@@ -31,7 +31,7 @@
         "title":"post4",
         "slug":"model/post2",
         "description":"this is demo 12",
-        "counter":4,
+        "counter":0,
         "user_id":3
     }
 ]

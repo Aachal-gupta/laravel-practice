@@ -314,6 +314,10 @@ Laravel Observers can listen to the following model events:
 - **Easier Maintenance**: All event-related logic is centralized in one place.
 - **Consistency**: Ensures model events are handled uniformly across the application.
 
+practical:--
+1) php artisan make:observer PostObserver --model=Post // it will create observer folder and inside that a file is created 
+
+
 _________________________________________________________________________________________________________________
                                     EVENTS
                                     ### What are Events in Laravel?

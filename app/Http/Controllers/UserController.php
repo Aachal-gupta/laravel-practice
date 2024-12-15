@@ -22,8 +22,11 @@ class UserController
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
+    {     // http://localhost:8000/post/create
+        // both are work as a simultaneously
+        $user = User::find(4)->delete(); // user id 1 will be deleted 
+         // and after that in post table same id of post or data will be deleted  and for that function
+         //defined in a model whivh is auto function evoked
     }
 
     /**

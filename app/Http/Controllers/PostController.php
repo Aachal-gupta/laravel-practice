@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Str;  // add this for string 
 
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -12,7 +13,7 @@ class PostController
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {  //http://localhost:8000/post
         $user = Post::with('user')->find(1);
         return $user;
     }
@@ -22,7 +23,15 @@ class PostController
      */
     public function create()
     {
-        //
+        $post_title="This is another Testing by Observer file ";       //http://localhost:8000/post/create
+        // $post_slug=str::slug($post_title,"-");  // this code i have write in observer file 
+        // echo $post_slug;
+        Post::create([
+            'title'=> $post_title ,
+            'description'=>"There is observer file who created the slug ",
+            // 'slug'=>$post_slug,
+            'user_id'=>2,
+        ]);
     }
 
     /**
