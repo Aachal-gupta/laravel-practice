@@ -316,7 +316,7 @@ Laravel Observers can listen to the following model events:
 
 practical:--
 1) php artisan make:observer PostObserver --model=Post // it will create observer folder and inside that a file is created 
-
+create events and call in AppServiceObserver file 
 
 _________________________________________________________________________________________________________________
                                     EVENTS
@@ -370,4 +370,126 @@ An event consists of two main parts:
 - **Scalable**: Easily add new listeners to handle new tasks for the same event.
 - **Background Processing**: Use queues to process events asynchronously.
 - **Real-Time Updates**: Combine events with broadcasting to notify users in real time.
+______________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________
+                            QUERY SCOPE
+                                |
+                        ________|________
+                        |                |
+                    local scope        Global scope
 
+                    In Laravel, **query scopes** allow you to encapsulate reusable query logic within your Eloquent models. This feature is especially useful when you need to apply certain conditions repeatedly across different parts of your application. Laravel supports two types of query scopes:
+
+1. **Global Scopes**  
+2. **Local Scopes**
+
+---
+
+### **1. Local Scopes**
+Local scopes define reusable query logic that you can use by calling a method on the query builder. These are methods you define in your Eloquent model.
+
+#### **Defining a Local Scope**
+A local scope is defined by prefixing a method name in your Eloquent model with `scope`.
+
+```php
+class User extends Model
+{
+    // A local scope to fetch only active users
+    public function scopeActive($query)
+    {
+        return $query->where('status', 'active');
+    }
+
+    // Another example: Scope for users created this month
+    public function scopeCreatedThisMonth($query)
+    {
+        return $query->whereMonth('created_at', now()->month);
+    }
+}
+```
+
+#### **Using a Local Scope**
+Once defined, you can invoke the scope using the method name (without the `scope` prefix) on the query builder:
+
+```php
+// Fetch all active users
+$activeUsers = User::active()->get();
+
+// Fetch all users created this month
+$usersThisMonth = User::createdThisMonth()->get();
+
+// You can also chain scopes and additional query conditions
+$activeAdmins = User::active()->where('role', 'admin')->get();
+```
+
+#### **Benefits of Local Scopes**
+- Keeps query logic reusable and centralized in the model.
+- Improves code readability and reduces repetition.
+
+---
+
+### **2. Global Scopes**
+Global scopes are applied to all queries for a given Eloquent model. You define a global scope when you want certain conditions (e.g., soft deletes, tenant filtering) to be automatically applied.
+
+#### **Defining a Global Scope**
+To create a global scope, you typically define a class that implements the `Illuminate\Database\Eloquent\Scope` interface.
+
+```php
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Scope;
+
+class ActiveScope implements Scope
+{
+    public function apply(Builder $builder, Model $model)
+    {
+        $builder->where('status', 'active');
+    }
+}
+```
+
+Then, apply the scope in your model:
+
+```php
+class User extends Model
+{
+    protected static function booted()
+    {
+        static::addGlobalScope(new ActiveScope());
+    }
+}
+```
+
+#### **Using a Global Scope**
+Once defined, the global scope is automatically applied to all queries for the model:
+
+```php
+// This will fetch only active users because the global scope is applied
+$users = User::all();
+```
+
+#### **Removing a Global Scope**
+If needed, you can bypass a global scope using the `withoutGlobalScope` method:
+
+```php
+// Ignore the ActiveScope while querying
+$allUsers = User::withoutGlobalScope(ActiveScope::class)->get();
+```
+
+---
+
+### **Dynamic Scopes (Inline Query Logic with Closures)**
+Laravel also allows you to define dynamic, on-the-fly scopes using closures. These are typically useful for temporary or unique filters.
+
+```php
+$activeUsers = User::where(function ($query) {
+    $query->where('status', 'active');
+})->get();
+```
+
+---
+
+### **When to Use Query Scopes**
+- **Local Scopes**: Use when you have query logic that will be reused in specific parts of your application.
+- **Global Scopes**: Use when you want certain conditions to apply automatically to all queries for a model (e.g., multi-tenancy or soft delete conditions).
+___________________________________________________________________________________________________________________________

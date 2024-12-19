@@ -13,8 +13,20 @@ class UserController
      */
     public function index()
 {
-    $user = User::with('posts')->find(1);  // Find user with id 1 and load related posts
-    return $user;
+    // $user = User::with('posts')
+    //                 // ->whereCity('Mumbai')
+    //                 // ->where('status',1)
+    //                 ->get();
+    //     return $user;
+
+    $user = User::with('posts')
+                    ->select('id','name',"email","status")   // id is primary key important to take
+                    ->with('posts:title,description,user_id')
+                    ->city(['Delhi','varansi','Bangloar'])
+                    // ->active()  // scope is define in model file
+                    ->sort()
+                    ->get();
+        return $user;
 }
 
 

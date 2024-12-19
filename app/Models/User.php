@@ -4,20 +4,37 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use  Illuminate\Database\Eloquent\Builder;
 
 class User extends Model
 {
     use HasFactory;
+
     public function posts(){
         return $this->hasMany(Post::class);
     }
 
+    //********* GLOBAL SCOPE ******** */
 
-    // //          EVENTS 1st method    // in that place we can use observer 
-    // // this function automaticall trigger when user click perticular id for delete 
-    // protected static function booted():void{        // it will be not return 
-    //     static::deleted(function($user){             // $user contain id no which comes from UserControler file  where i delete data 
-    //         $user->posts()->delete();                 // there is called posts function which is defined above ,which show relation with Post table
-    //     });
-    // }
+    protected static function booted():void{        //it is applicable all query
+    static::addGlobalScope('user',function(Builder $builder){   //there is no need to write call active() in controllerfile
+        $builder->where('status',1);
+    });
+    }
+
+   
+
+
+//********* LOCAL SCOPE ******** */
+//    public function scopeActive($query){
+//         return $query->where('status',1);   // there is need to call active() in controllerfile
+//    }
+
+   public function scopeCity($query,$cityName){
+    return $query->whereIn('city',$cityName);
+    }
+
+    public function scopeSort($query){
+        return $query->orderBy('name','asc');
+        }
 }

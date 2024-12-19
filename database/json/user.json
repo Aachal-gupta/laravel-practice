@@ -2,37 +2,49 @@
     {
         "id":"1",
         "name":"aachal1",
-        "email":"aachal1@gmail.com"
+        "email":"aachal1@gmail.com",
+        "city":"Bangloar",
+        "status":0
         
     },
     {
         "id":"2",
         "name":"akashy2",
-        "email":"akashay2@gmail.com"
+        "email":"akashay2@gmail.com",
+        "city":"Gujarat",
+        "status":1
         
     },
     {
         "id":"3",
         "name":"aastha3",
-        "email":"aastha3@gmail.com"
+        "email":"aastha3@gmail.com",
+        "city":"Varansi",
+        "status":1
         
     },
     {
         "id":"4",
         "name":"sakshi1",
-        "email":"sakshi1@gmail.com"
+        "email":"sakshi1@gmail.com",
+        "city":"Shimla",
+        "status":0
        
     },
     {
         "id":"5",
         "name":"samrudhi2",
-        "email":"samrudhi4@gmail.com"
+        "email":"samrudhi4@gmail.com",
+        "city":"Mumbai",
+        "status":1
        
     },
     {
         "id":"6",
         "name":"sai",
-        "email":"saia@gmail.com"
+        "email":"saia@gmail.com",
+        "city":"Delhi",
+        "status":1
         
     }
 ]

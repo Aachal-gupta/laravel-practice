@@ -14,8 +14,15 @@ class PostController
      */
     public function index()
     {  //http://localhost:8000/post
-        $user = Post::with('user')->find(1);
-        return $user;
+        // $user = Post::with('user')->get();
+        // return $user;
+
+
+        $post = Post::withWhereHas("user", function($query){
+            $query->active();
+        })->whereStatus(1)->get();
+        return $post;
+
     }
 
     /**

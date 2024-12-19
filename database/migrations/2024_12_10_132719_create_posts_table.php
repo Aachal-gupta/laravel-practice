@@ -10,14 +10,14 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('posts', function (Blueprint $table) {
+        { Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title',50);
-            $table->string('slug',100);
+            $table->string('title', 50);
             $table->longText('description');
-            $table->integer('counter')->default(0);
-            $table->unsignedBigInteger('user_id');
+            $table->integer('status')->default(1);
+            $table->foreignId('user_id')
+                ->constrained('users')  // Automatically references 'id' on 'users'
+                ->cascadeOnDelete();    // Automatically adds 'onDelete' action
             $table->timestamps();
         });
     }
