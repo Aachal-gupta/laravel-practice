@@ -493,3 +493,24 @@ $activeUsers = User::where(function ($query) {
 - **Local Scopes**: Use when you have query logic that will be reused in specific parts of your application.
 - **Global Scopes**: Use when you want certain conditions to apply automatically to all queries for a model (e.g., multi-tenancy or soft delete conditions).
 ___________________________________________________________________________________________________________________________
+            Image/Other file upload
+
+1] store('images')   ->data will be store in Storage/App/images.jpg
+we can not show/read this image  for user, it is local file saved and secure , it will be change the file name by default in 16 character
+
+2] store('images','public')  ->data will be store in Storage/App/public/images.jpg
+we can show/read this image  for user
+in this function we are not passing image/file name . by default file name will be covert in to random name or hash name for security purpose from hackers. this name will be 16 character
+
+3] storeAs('images','filename.jpg','public')  ->data will be store in Storage/App/public/images.jpg
+
+4]move(base_path('\myfolder\images'),'filename.jpg'); image will be save in give you path and folder
+we can also use
+         Public_path()
+         Storage_path()
+         Resource_path()
+
+------------------------------------------------------------------------------------------
+1> first creae view file in view folder and make html css form page
+2> now create resource controller file & write code 
+
