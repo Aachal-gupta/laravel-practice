@@ -1,6 +1,6 @@
 <!-- // database crate by terminal cammand -->
 php artisan make:migration create_tablename_table
-php artisan migrate 
+php artisan migrate
 <!-- // start xamp and show database laravel and in that table student /tablename + migration table which form auto
 //make column in side that file which is make after execution of cammand   -->
 
@@ -19,25 +19,25 @@ php artisan migrate:rollback --batch=2
 <!-- //you can watch batch no. in migration table batch no=2 will be delete table -->
 
 <!-- //*****aALL TABLE WILL BE DELETE **** -->
-php artisan migrate:reset   //all table will be deleted except migration table 
+php artisan migrate:reset   //all table will be deleted except migration table
 <!-- //we can do back mean all deleted table will appear by -> php artisan migrate -->
 
 <!-- //*******  RESET  ******* -->
 <!-- // after edit in file you have to write cmmand -->
-php artisan migrate:reset // it will be delete all table and then make all table 
+php artisan migrate:reset // it will be delete all table and then make all table
 php artisan migrate
 
 
 <!-- //******* Add to column with Migration ****** */ -->
-<!-- 3 steps    in  the place of update_students_table we can take any name like update-stu  --> 
+<!-- 3 steps    in  the place of update_students_table we can take any name like update-stu  -->
  1) php artisan make:migration update_students_table --table=students   //a file is made update_student_table
 2) modify in file update_students_table
-3)php artisan migrate 
+3)php artisan migrate
 
 <!--********************************************
      *every table name will be plural form      *
      * like students, users,projects            *
-     *at the end 's'letter should be take place * 
+     *at the end 's'letter should be take place *
      ********************************************-->
 
      <!-- //Rename column
@@ -45,10 +45,10 @@ php artisan migrate
             //  remove column
              $table->dropColumn('id');
 
-             
+
               //rename table  make file php artisan make:migration table_migration
         Schema::rename('student','students');
-        // delete table 
+        // delete table
         // Schema::dropIfExists('users'); -->
 
         <!-- endation-2 -->
@@ -64,7 +64,7 @@ php artisan migrate
 
         <!-- foreign key with Cascade -->
          <!-- if we want to change data in db table that column which is primary and foreign key -->
-          
+
 
 *******************************************************************************************************************************************
 SEEDERS    and  STEPS                                          |
@@ -72,14 +72,14 @@ SEEDERS    and  STEPS                                          |
 insert date by seeding in two method|
                                     |->seeder   means Real data insert in table
                                     |->factory  means Fake data insert in table
-For that there is 5 method 
+For that there is 5 method
 1> create database
 2> create database migration -> mean create tables in database
 3>Seeding    -> means insert data fake/real
 4>create model
-5>camaand ->   php artisna db:seed 
+5>camaand ->   php artisna db:seed
 
-*4> first make model -> php artisan make :model student 
+*4> first make model -> php artisan make :model student
 don't take 's' in students , it will create student.php file in model folder
 
 *3> maake seeder file-> php artisan make:seeder StudentSeeder
@@ -88,21 +88,21 @@ in seeder file add path of model file student like->use App/Models/student
 
 *) in create migration file add $table->timestamps();
 in /studentSeeder.php file  write data in key value parse_ini_file and in databseSeeder file call that mathod which is in declare
-in studentSeeder.php file ->likethis call function 
+in studentSeeder.php file ->likethis call function
 
 $this->call([
     StudentSeeder::class      <!--write here class name in studentSeeder  file  -->
     ]);
    <!-- after that run this command  -->
-    php artisna migrate:refresh 
+    php artisna migrate:refresh
      <!--this cammand will delete all table and make/execute all table but data will be deleted  -->
-     php artisan  db:seed  
+     php artisan  db:seed
 
 
 *****************************************************|
-Fake data in database table                          |               
+Fake data in database table                          |
 *****************************************************|
-create factory file 
+create factory file
 php artisan make:factory StudentFactory
 for refresh-> php artisan migrate:refresh
 add data command-> php artisan db:seed
@@ -114,14 +114,14 @@ php artisan migrate:fresh --seed
 
 *****************************************************|
             Create Model                             |
-Query builder -->controller                          |               
+Query builder -->controller                          |
 *****************************************************|
 
 *) perform CRUD operation on db
 
 
 -------------
-* Read data *   by get method 
+* Read data *   by get method
 -------------
 
 -------------
@@ -138,15 +138,15 @@ ____________________________________________________________________
 __*notes__________________________________________________________________
 [
     1> in migration file always be plural form .at last file name will be s
-    2> in seeder file ,model file and controller file name will  be 1st letter should be capital 
+    2> in seeder file ,model file and controller file name will  be 1st letter should be capital
     3>for execution use this cmmand   php artisan migrate:refresh and  php artisan db:seed
-    
-    
+
+
 ]
 
 
 _________________________________________________________________________________________________________________________________________________________________
-  
+
 Q1] why we use resources on laravel ?
 --> Laravel provides resource controllers to simplify the handling of CRUD operations.
     When you create a resource controller, Laravel automatically assigns standard routes (like index, show, create, store, edit, update, and destroy)
@@ -154,18 +154,18 @@ Q1] why we use resources on laravel ?
     by this command  we create file php artisan make:controller ProductController --resource
 
 Q2] what is Resource controller ?
-    Controllers that follow RESTful patterns, primarily used for managing resources in a CRUD format. 
+    Controllers that follow RESTful patterns, primarily used for managing resources in a CRUD format.
     They simplify routing by automatically linking common HTTP verbs to specific methods.
     in route -> Route::resource('any-name', ProductController::class);
 
 Q3] what is invokable Controllers ?
 -->  Controllers that contain a single __invoke method, allowing them to act as a single-action controller.
-     Useful for tasks that only need one action, like a contact form or login. 
+     Useful for tasks that only need one action, like a contact form or login.
      php artisan make:controller ContactController --invokable
 
 Q4] what is API Controllers ?
     API Controllers: Similar to resource controllers but designed for API routes.
-    You can use the --api flag when creating them to exclude methods like create and edit, 
+    You can use the --api flag when creating them to exclude methods like create and edit,
     which are not typically used in APIs.
     php artisan make:controller ProductController --api
 
@@ -179,11 +179,11 @@ types of controller:-
 <!-- in that file we can make only one method  -->
 3] Resource Controller : php artisan make:controller UserController --resource
 <!-- in that file we use for CRUD operation . in that file already made it method/function like index, create ,store , show ,destroy , update, edit -->
-<!--  in this we do not need to make route for every function just make add controller file path and and write route for one time 
+<!--  in this we do not need to make route for every function just make add controller file path and and write route for one time
   Route::resource('myfile',MyController::class); and now put on terminal   php artisan route:list --name=myfile this will show how to call this function                          -->
 ________________________________________________________________________________________________________________________________________________________________
 
-Q1] what is ORM ? 
+Q1] what is ORM ?
     In Laravel, ORM stands for Object-Relational Mapping, and Laravel's ORM is called Eloquent.
     Eloquent ORM is a built-in, powerful feature that allows you to interact with your database in an intuitive, object-oriented way.
     It essentially maps your database tables to corresponding models in Laravel, making it easier to work with complex data relationships
@@ -201,12 +201,12 @@ Q1] what is ORM ?
         Eloquent makes working with databases more straightforward and is highly integrated with Laravel's other features, making it a popular choice for many developers.
 *******************************************************************************************
 
-1] create model and controller resource file both  by this single command 
+1] create model and controller resource file both  by this single command
     <!-- php artisan make:model Ormuser --controller --resource -->
 
 
     <!-- CHANGE DATABASE TABLE NAME ONLY IN RESOURCES CONTROLLER -->
-     1] first go on phpmyadmin database , then on table click option  Operation and change table name 
+     1] first go on phpmyadmin database , then on table click option  Operation and change table name
      2] go on model of the same table and put    protected $table = "new_table_name";
      3] php artisan serve
      *) dont use that table name in file , we use table name which is eriiten in model in plural form.  (s)
@@ -214,29 +214,29 @@ Q1] what is ORM ?
 
      ________________________________________________________________________________________________________________________________________________________________
                     LARAVEL ELOQUENT ONE TO ONE RELATIONSHIP
-                    
+
         1] php artisan make:migration create_users_table  (CREATE TABLE  , IN MIGRATION FILE WE MAKE 2 TABLE WITH FOREIGN KEY)
         2] php artisan migrate
         3] php artisan make:controller ClientController --resource (make 2 controller )
-        4] php artisan make:controller ContactController  
+        4] php artisan make:controller ContactController
         5] php artisan make:model Contact  (make  2 model file )
         6] php artisan make:model Client
         7] php artisan make:seeder ContactSeeder        // make json file  and seeder file to insert data in db
-            php artisan make:seeder ContactSeeder 
+            php artisan make:seeder ContactSeeder
         8] php artisan db:seed --class=contactSeeder
-        9] in index function og ClientController file we fetch data and show  blow this 
+        9] in index function og ClientController file we fetch data and show  blow this
         <!-- $client = Client::where('gender','male')
                         ->withWhereHas('contact',function($query){ //we can use whereHas,withWhereHas
                             $query->where('city','New York');
                         })->get();
             return $client;  -->
-        10] in Client.php model we have to make a function . in that we use hasOne method for relation to other table 
+        10] in Client.php model we have to make a function . in that we use hasOne method for relation to other table
         <!-- public function contact(){
-            return $this->hasOne(Contact::class,'clients_id');  // there is  client file attached with contact file with one to one relation 
+            return $this->hasOne(Contact::class,'clients_id');  // there is  client file attached with contact file with one to one relation
         } // clients_id is a foreign key of contact table in data base
   -->
         11]make the route    like this Route::resource('/client',ClientController::class);
-        12] we can also make the inverse one to one relationship  by using belongsTo method in model file 
+        12] we can also make the inverse one to one relationship  by using belongsTo method in model file
 
        _______________________________________________________________________________________________________
                             LARAVEL ELOQUENT ONE TO MANY RELATIONSHIP
@@ -248,10 +248,10 @@ Q1] what is ORM ?
        ***] php artisan migrate:fresh
         This will drop all tables and re-run migrations for the new database.
 
-        1] php artisan make:migration create_post_table  
+        1] php artisan make:migration create_post_table
         2] SAME AS ABOVE , JUST USE ONE TO MANY RELATION
         inverse one to many relation is same as above like one to one relation
-        same as many to many relation 
+        same as many to many relation
 
     _____________________________________________________________________________________________________________
             One to One relation in (polymorphic)
@@ -315,8 +315,8 @@ Laravel Observers can listen to the following model events:
 - **Consistency**: Ensures model events are handled uniformly across the application.
 
 practical:--
-1) php artisan make:observer PostObserver --model=Post // it will create observer folder and inside that a file is created 
-create events and call in AppServiceObserver file 
+1) php artisan make:observer PostObserver --model=Post // it will create observer folder and inside that a file is created
+create events and call in AppServiceObserver file
 
 _________________________________________________________________________________________________________________
                                     EVENTS
@@ -380,7 +380,7 @@ ________________________________________________________________________________
 
                     In Laravel, **query scopes** allow you to encapsulate reusable query logic within your Eloquent models. This feature is especially useful when you need to apply certain conditions repeatedly across different parts of your application. Laravel supports two types of query scopes:
 
-1. **Global Scopes**  
+1. **Global Scopes**
 2. **Local Scopes**
 
 ---
@@ -512,5 +512,105 @@ we can also use
 
 ------------------------------------------------------------------------------------------
 1> first creae view file in view folder and make html css form page
-2> now create resource controller file & write code 
+2> now create resource controller file & write code
+File Storage Location:
+The uploaded files are stored in the storage/app/public/uploads directory.
+You can retrieve them using the asset('storage/uploads/filename') function.
 
+**] Ensure you have a symbolic link from public/storage to storage/app/public. Use the command:
+php artisan storage:link when we have to read the file then use this command to copy the all files in another storage folder
+
+________________________________________________________________________________________________________________
+
+            Accessors and Mutators
+
+
+  In Laravel, accessors and mutators are methods that allow you to manipulate Eloquent model attribute values
+   when retrieving or setting them. Accessors modify attribute values after retrieving them from the database,
+   while mutators alter values before saving them to the database.
+
+   Accessors enable you to format or transform attribute values when you access them.
+   To define an accessor, add a method to your model with the naming convention get{Attribute}Attribute,
+  where {Attribute} is the "studly" cased name of the attribute. For example,
+   to ensure the first_name attribute always has its first letter capitalized:
+
+   <!-- namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    // Accessor for first_name attribute
+    public function getFirstNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+} -->
+
+With this accessor, whenever you access the first_name attribute, it will return the value with the first letter capitalized.
+Mutators allow you to modify attribute values before they're saved to the database. Define a mutator using the naming convention set{Attribute}Attribute. For instance, to ensure the email attribute is always stored in lowercase:
+    <!-- namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    // Mutator for email attribute
+    public function setEmailAttribute($value)
+    {
+        $this->attributes['email'] = strtolower($value);
+    }
+} -->
+
+With this mutator, any value assigned to the email attribute will be converted to lowercase before being saved.
+
+In Laravel 9 and later versions, a new approach using the Attribute class was introduced to define accessors and mutators in a more concise manner. Here's how you can define both an accessor and a mutator for the first_name attribute:
+
+    <!-- namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
+class User extends Model
+{
+    // Accessor and Mutator for first_name attribute
+    protected function firstName(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => ucfirst($value),
+            set: fn ($value) => strtolower($value),
+        );
+    }
+} -->
+
+In this example, the get closure defines the accessor, and the set closure defines the mutator for
+ the first_name attribute.
+
+
+Accessors and mutators are powerful tools in Laravel that help ensure data consistency and proper formatting throughout
+ your application. By using them, you can encapsulate data transformations within your models, promoting cleaner and
+ more maintainable code.
+
+ PRACTICAL:--
+in model file write the code
+<!-- public function setEmailAttribute($value){
+        $this->attributes['email'] = strtolower($value);  // $this mean users table
+    }
+
+    public function setUserNameAttribute($value){
+        $this->attributes['user_name'] = strtolower($value);
+    }
+    public function setPasswordAttribute($value){
+        $this->attributes['password'] = bcrypt($value);
+    } -->
+        if we put name or email like this  AAchaL@GMAil.coM then it is automatically converted proper manner
+    1] set mean mutators : when we insert data it auto work
+    2] get mean accessors : when we get/fetch  data it auto work
+
+    protected function UserName(): Attribute{
+        return Attribute::make(
+            get: fn(string $value) =>ucwords($value),
+            set: fn(string $value) =>strtolower($value)
+
+        );
+    }  // we can also make like this in less code

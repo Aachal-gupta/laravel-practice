@@ -1,56 +1,49 @@
 [
     {
-        "name":"aachal",
-        "email":"aachal@gmail.com",
-        "age":20,
-        "city":2,
-        "votes":200,
-        "created_at": "{{now}}",
-        "updated_at": "{{now}}"
+        "user_name":"aachal gupta",
+        "email":"aAchal@gmail.com",
+        "salary":20,
+        "dob":"2023-11-2",
+        "password":"ewr123dsd"
+
     },
     {
-        "name":"akashy",
-        "email":"akashay@gmail.com",
-        "age":10,
-        "city":1,
-        "votes":500,
-        "created_at": "{{now}}",
-        "updated_at": "{{now}}"
+        "user_name":"akashy kumar",
+        "email":"akaShay@gmail.com",
+        "salary":10,
+        "dob":"2023-11-2",
+        "password":"ewr7y6sd"
+
     },
     {
-        "name":"aastha",
-        "email":"aastha@gmail.com",
-        "age":24,
-        "city":4,
-        "votes":250,
-        "created_at": "{{now}}",
-        "updated_at": "{{now}}"
+        "user_name":"aastha sharma",
+        "email":"aasTHA@gmail.com",
+        "salary":24,
+         "dob":"2023-11-2",
+        "password":"ewpoidsd"
+
     },
     {
-        "name":"sakshi",
-        "email":"sakshia@gmail.com",
-        "age":15,
-        "city":5,
-        "votes":350,
-        "created_at": "{{now}}",
-        "updated_at": "{{now}}"
+        "user_name":"sakshi malik",
+        "email":"saKshia@gmaIL.com",
+        "salary":15,
+         "dob":"2023-11-2",
+        "password":"ewddddsd"
     },
     {
-        "name":"samrudhi",
-        "email":"samrudhi@gmail.com",
-        "age":15,
-        "city":1,
-        "votes":450,
-        "created_at": "{{now}}",
-        "updated_at": "{{now}}"
+        "user_name":"samrudhi patil",
+        "email":"SAMrudhi@gmail.com",
+        "salary":15,
+         "dob":"2023-11-2",
+        "password":"ewrefgfg"
+
     },
     {
-        "name":"sai",
-        "email":"saia@gmail.com",
-        "age":15,
-        "city":1,
-        "votes":250,
-        "created_at": "{{now}}",
-        "updated_at": "{{now}}"
+        "user_name":"sai joshi",
+        "email":"saia@gMAil.com",
+        "salary":15,
+        "dob":"2023-11-2",
+        "password":"ewrdr23"
+
     }
 ]

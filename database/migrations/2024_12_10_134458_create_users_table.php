@@ -13,8 +13,13 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id(); // This creates an unsigned big integer by default
-            $table->string('file_name');
-            $table->timestamps();
+            $table->string('user_name');
+            $table->string('email')->unique();
+            $table->integer('salary');
+            $table->date('dob');
+            $table->string('password');
+
+            // $table->timestamps();
         });
     }
 
