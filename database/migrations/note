@@ -742,6 +742,7 @@ Copy code
 <x-alert type="success" message="आपकी प्रक्रिया सफलतापूर्वक पूरी हुई!" />
 
 _______________________________________________________________________________________________________
+                        Slots for component
 
-
-
+it is used for making the short code /reduce the line of code
+  php artisan make:component card  --inline -> from this cammand we can create inline component mean we do not need to create extra component

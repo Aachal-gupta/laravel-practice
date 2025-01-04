@@ -12,12 +12,31 @@
         $message = "this is common";
     @endphp
 
+    <h1 class="text-center">this is welcome page .</h1>
 
-    <x-alert /> {{--  this is by default use--}}
-    <x-alert  type="info" :$message/>
-    <x-alert  type="primary" :message=" $message "/>
-    <x-alert  type="success" role="alert" message="{{ $message }}"/>
-    <x-alert  type="info" role="alert"  id="first" class="m-4" message="this is danger"/>
+   <x-alert type="danger">
+        <x-slot name="title" class="font-bold">
+            heading goes here .
+            {{$component->link("Just Testing","https://www.yahoobaba.net")}}
+        </x-slot>
+        <p class="mb-0">this is alert
+            <a href="" class="alert-link">An example Link </a>
+        </p>
+   </x-alert>
 
+   <x-card /> {{-- this data comes from card.php file from inline component--}}
+
+   {{-- same thing by dynamic method from db --}}
+
+   @php
+       $componentName = "alert"         // -or we can take here card
+   @endphp
+
+   <x-dynamic-component :component="$componentName"  class="m-4"/>
+
+  <x-form action="/somepage" method="PUT" id="data12" class="myfile">
+    <input type="text" name="name">
+    <button type="submit">submit</button>
+  </x-form>
 </body>
 </html>
