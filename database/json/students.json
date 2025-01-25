@@ -1,49 +1,61 @@
 [
     {
-        "user_name":"aachal gupta",
-        "email":"aAchal@gmail.com",
-        "salary":20,
-        "dob":"2023-11-2",
+        "name":"pooja gupta",
+        "age":20,
+        "email":"poojal@gmail.com",
+        "address":"pune",
+        "city":"MH",
+        "phone":"1234567890",
         "password":"ewr123dsd"
 
     },
     {
-        "user_name":"akashy kumar",
-        "email":"akaShay@gmail.com",
-        "salary":10,
-        "dob":"2023-11-2",
-        "password":"ewr7y6sd"
+       "name":"aachal5 sharma",
+        "age":80,
+        "email":"aAch34l@gmail.com",
+        "address":"pune",
+        "city":"MH",
+        "phone":"1234567890",
+        "password":"ewr123dsd"
 
     },
     {
-        "user_name":"aastha sharma",
-        "email":"aasTHA@gmail.com",
-        "salary":24,
-         "dob":"2023-11-2",
-        "password":"ewpoidsd"
+        "name":"aachal3 gupta",
+        "age":27,
+        "email":"aAcl@gmail.com",
+        "address":"pune",
+        "city":"MH",
+        "phone":"12345454390",
+        "password":"ewr123dsd"
 
     },
     {
-        "user_name":"sakshi malik",
-        "email":"saKshia@gmaIL.com",
-        "salary":15,
-         "dob":"2023-11-2",
-        "password":"ewddddsd"
+       "name":"aachaerl gupta",
+        "age":20,
+        "email":"Kumar@gmail.com",
+        "address":"pune",
+        "city":"UP",
+        "phone":"123456330",
+        "password":"ewr123dsd"
     },
     {
-        "user_name":"samrudhi patil",
-        "email":"SAMrudhi@gmail.com",
-        "salary":15,
-         "dob":"2023-11-2",
-        "password":"ewrefgfg"
+        "name":"aachal3 gupta",
+        "age":20,
+        "email":"sharma@gmail.com",
+        "address":"pune",
+        "city":"MH",
+        "phone":"1234567890",
+        "password":"ewr1d"
 
     },
     {
-        "user_name":"sai joshi",
-        "email":"saia@gMAil.com",
-        "salary":15,
-        "dob":"2023-11-2",
-        "password":"ewrdr23"
+        "name":"aachal gupta",
+        "age":24,
+        "email":"gupta@gmail.com",
+        "address":"pune",
+        "city":"MP",
+        "phone":"1234567800",
+        "password":"ewr123dsd"
 
     }
 ]

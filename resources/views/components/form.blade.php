@@ -10,6 +10,5 @@
         $method($method)
     @endunless
 
-    {{-- @method('PUT') --}}
     {{$slot}}
 </form>
