@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
+
 <body>
-    @php
-        $message = "this is common";
-    @endphp
 
-    <h1 class="text-center">this is welcome page .</h1>
+    <div class="container p-4">
+        <div class="row m-5">
+            <div class="card col-8">
+                <div class="card-header  m-2">
+                    <h2 class="text-center">User Authentication </h2>
+                </div>
+                <div class=" card-body text-cenetr m-5 p-3">
+                    <div class="mb-3 p-3 ">
+                        <a href="{{route('register')}}"><button class="btn btn-primary text-center m-4" type="register">
+                            Register
+                        </button></a>
 
-   <x-alert type="danger">
-        <x-slot name="title" class="font-bold">
-            heading goes here .
-            {{$component->link("Just Testing","https://www.yahoobaba.net")}}
-        </x-slot>
-        <p class="mb-0">this is alert
-            <a href="" class="alert-link">An example Link </a>
-        </p>
-   </x-alert>
+                        <a href="{{route('login')}}"><button class="btn btn-primary text-cenetr m-4" type="register">
+                            Login
+                        </button></a>
 
-   <x-card /> {{-- this data comes from card.php file from inline component--}}
+                    </div>
 
-   {{-- same thing by dynamic method from db --}}
+                </div>
+            </div>
 
-   @php
-       $componentName = "alert"         // -or we can take here card
-   @endphp
 
-   <x-dynamic-component :component="$componentName"  class="m-4"/>
 
-  <x-form action="/somepage" method="PUT" id="data12" class="myfile">
-    <input type="text" name="name">
-    <button type="submit">submit</button>
-  </x-form>
+        </div>
+    </div>
+
+    </div>
 </body>
+
 </html>

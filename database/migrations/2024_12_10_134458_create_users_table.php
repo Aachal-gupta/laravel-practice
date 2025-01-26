@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id(); // This creates an unsigned big integer by default
-            $table->string('user_name');
+            $table->string('name');
             $table->string('email')->unique();
-            $table->integer('salary');
-            $table->date('dob');
+            // $table->integer('cpassword');
             $table->string('password');
 
             // $table->timestamps();

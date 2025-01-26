@@ -2,13 +2,10 @@
 
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\UserController;    // Import the UserController
+use App\Http\Controllers\UsersController;    // Import the UserController
 
 
 
-// Route::resource('user', UserController::class);  // Resource route for UserController
-
-// Route::view('/','welcome');
 
 Route::controller(StudentController::class)->group(function(){
 
@@ -26,5 +23,21 @@ Route::get('/deleteUser/{id}', 'deleteUser')->name('delete.user');
 
 });
 Route::view('newuser','/addUser');
+
+// ---------------------------------------------------------------------------------------------------------------
+
+Route::get('/authenticate',function () {
+    return view('welcome');
+});
+
+Route::view('register','register')->name('register');
+Route::post('registerSave',[UsersController::class,'register'])->name('registerSave');
+
+Route::view('login','login')->name('login');
+Route::get('loginMatch',[UsersController::class,'login'])->name('loginMatch');
+// when we have to access the page then use get  and when we have to post the data then we have to use post
+Route::get('dashboard',[UsersController::class,'dashboardPage'])->name('dashboard');
+Route::get('logout',[UsersController::class, 'logout'])->name('logout');
+
 
 
