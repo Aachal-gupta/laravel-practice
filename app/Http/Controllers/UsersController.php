@@ -42,11 +42,14 @@ class UsersController
     }
 
     public function dashboardPage(){
-        if(Auth::check()){      // this fucntion will be check user login or not ?
-            return view('dashboard');
-        }else{
-            return redirect()->route('login');
-        }
+
+        return view('dashboard');
+
+        // if(Auth::check()){      // this fucntion will be check user login or not ?
+        //     return view('dashboard');
+        // }else{
+        //     return redirect()->route('login');
+        // }
     }
 
     public function logout(){

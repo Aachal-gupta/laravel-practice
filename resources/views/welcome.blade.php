@@ -24,7 +24,7 @@
                             Register
                         </button></a>
 
-                        <a href="{{route('login')}}"><button class="btn btn-primary text-cenetr m-4" type="register">
+                        <a href="{{route('login')}}"><button class="btn btn-primary text-cenetr m-4" type="login">
                             Login
                         </button></a>
 

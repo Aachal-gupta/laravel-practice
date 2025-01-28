@@ -33,7 +33,7 @@
                             </div>
 
                             <button class="btn btn-primary">Register</button>
-                            <a href="/" class="btn btn-primary">Back</a>
+                            <a href="{{route('register')}}" class="btn btn-primary">Back</a>
                         </form>
 
                         @if ($errors->any())
