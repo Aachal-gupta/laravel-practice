@@ -53,8 +53,8 @@ Route::view('login','login')->name('login');
 Route::get('loginMatch',[UsersController::class,'login'])->name('loginMatch');
 
 // when we have to access the page then use get  and when we have to post the data then we have to use post
-// Route::get('dashboard',[UsersController::class,'dashboardPage'])->name('dashboard')->middleware(ValidUser::class);
-// Route::get('/',[StudentController::class, 'showUsers'])->name('home')->middleware(ValidUser::class);
+Route::get('dashboard',[UsersController::class,'dashboardPage'])->name('dashboard')->middleware(ValidUser::class);
+Route::get('/',[StudentController::class, 'showUsers'])->name('home')->middleware(ValidUser::class);
 
 
 //// OR WE CAN WRITE LIKE THIS ALSO IN SHORT  ABOVE TWO CODE in group
@@ -72,8 +72,8 @@ Route::get('loginMatch',[UsersController::class,'login'])->name('loginMatch');
 
 // this is laravel ka khud ka middleware hai auth, we can use also that one. it will auto check user is login ot not ? but this auth will not check user is admin or not ?
 
-    Route::get('dashboard',[UsersController::class,'dashboardPage'])->name('dashboard')->middleware(['auth', ValidUser::class . ':student']);
-    Route::get('/',[StudentController::class, 'showUsers'])->name('home')->middleware(['auth', ValidUser::class . ':student']);
+    // Route::get('dashboard',[UsersController::class,'dashboardPage'])->name('dashboard')->middleware(['auth', ValidUser::class . ':student']);
+    // Route::get('/',[StudentController::class, 'showUsers'])->name('home')->middleware(['auth', ValidUser::class . ':student']);
 
 // });  //for that we need to make a colum for role and in that we have to put admin or student then they can access
 
