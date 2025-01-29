@@ -3,6 +3,13 @@
 
     <x-slot:title>
         Add User Data
+        {{-- this session coems from TestController --}}
+        <h1>{{ $value }}</h1>
+
+        @if (session('status'))
+            <div class="alert alert-success"> {{ session('status') }} </div>
+        @endif
+
     </x-slot>
 
     <form action="{{ route('addUser1') }}" method="POST" class="m-4 p-3" style="border: 1px solid grey">

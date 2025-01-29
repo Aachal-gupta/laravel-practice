@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;    // Import the UserController
 use App\Http\Middleware\ValidUser;
+use App\Models\Test;
 
 Route::controller(StudentController::class)->group(function(){
 
@@ -80,3 +82,13 @@ Route::get('/',[StudentController::class, 'showUsers'])->name('home')->middlewar
 
 
 Route::get('logout',[UsersController::class, 'logout'])->name('logout');
+
+
+// --------------------------------------------------------------------------------------------------------
+// `          -----------------------------------  session ----------------------------
+
+Route::get('/index2', [TestController::class, 'index2']);
+
+Route::get('/store-session', [TestController::class, 'storeSession']);
+
+Route::get('/delete-session', [TestController::class, 'deleteSession']);
